@@ -8,15 +8,29 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "12.0.4",
+    "@emotion/react": "^11.6.0",
+    "@emotion/styled": "^11.6.0",
+    "axios": "^0.24.0",
+    "date-fns": "^2.26.0",
+    "next": "^12.0.5-canary.8",
+    "next-seo": "^4.28.1",
+    "nookies": "^2.5.2",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-icons": "^4.3.1",
+    "sass": "^1.43.4",
+    "swr": "^1.0.1"
   },
   "devDependencies": {
     "@types/node": "16.11.9",
     "@types/react": "17.0.36",
+    "autoprefixer": "^10.4.0",
     "eslint": "7.32.0",
     "eslint-config-next": "12.0.4",
+    "eslint-config-prettier": "^8.3.0",
+    "postcss": "^8.3.11",
+    "prettier": "^2.4.1",
+    "tailwindcss": "^2.2.19",
     "typescript": "4.5.2"
   }
 }

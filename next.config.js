@@ -1,4 +1,12 @@
 /** @type {import('next').NextConfig} */
-module.exports = {
+const config = {
   reactStrictMode: true,
-}
+  swcMinify: true,
+  sassOptions: true,
+  i18n: {
+    locales: ['en', 'ko'],
+    defaultLocale: 'ko',
+  },
+};
+
+module.exports = config;
