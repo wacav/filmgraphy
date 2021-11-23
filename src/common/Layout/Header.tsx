@@ -15,7 +15,7 @@ const LayoutHeader = () => {
       </div>
       <div className="hidden px-2 mx-2 navbar-center lg:flex">
         <div className="flex items-stretch">
-          <a className="btn btn-ghost btn-sm rounded-btn">Portfolio</a>
+          <a className="btn btn-ghost btn-sm rounded-btn">Market</a>
           <a className="btn btn-ghost btn-sm rounded-btn">About</a>
           <a className="btn btn-ghost btn-sm rounded-btn">Contact</a>
         </div>
