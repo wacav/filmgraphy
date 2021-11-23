@@ -15,11 +15,10 @@ html {
 body,
 #__next {
   width: 100%;
-  min-height: 100%;
 }
 // other font-family inherit setting ( tailwindcss, reset.css )
 body {
   position: relative;
-
+  @apply h-full;
   @apply bg-gray-700;
 }

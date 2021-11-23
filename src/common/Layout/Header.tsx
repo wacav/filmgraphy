@@ -1,36 +1,43 @@
+import { Image, Link } from '@libs/next/hint';
 import Logo from '@public/assets/logo_transparent.png';
-import { Feather } from '@type/icon';
-import { Image, Link } from '@type/next';
+import { useRouter } from 'next/router';
+import { FiMenu, FiUser } from 'react-icons/fi';
+import tw, { styled } from 'twin.macro';
+import { MENUS, TOGGLE_ID } from './code';
+const NavButtonWrap = styled.div`
+  .btn + .btn {
+    ${tw`ml-1`}
+  }
+`;
 
 const LayoutHeader = () => {
+  const router = useRouter();
+
   return (
-    <div className="navbar mb-2 shadow-lg bg-transparent">
+    <div className="w-full bg-gray-800 navbar mb-2 shadow-lg bg-transparent">
       <div className="px-2 mx-2 navbar-start">
-        <Link href="/">
+        <Link href="/" passHref>
           <Image src={Logo} alt="LOGO" height={52} width={52} className="cursor-pointer" />
         </Link>
-        <Link href="/">
-          <span className="text-lg font-bold uppercase ml-2 cursor-pointer">Filmgraphy</span>
+        <Link href="/" passHref>
+          <span className="text-lg font-bold uppercase ml-2 cursor-pointer text-primary">Filmgraphy</span>
         </Link>
-      </div>
-      <div className="hidden px-2 mx-2 navbar-center lg:flex">
-        <div className="flex items-stretch">
-          <a className="btn btn-ghost btn-sm rounded-btn">Market</a>
-          <a className="btn btn-ghost btn-sm rounded-btn">About</a>
-          <a className="btn btn-ghost btn-sm rounded-btn">Contact</a>
+        <div className="items-stretch ml-6 hidden lg:flex">
+          {MENUS.map((menu) => (
+            <Link href={menu.link} passHref key={menu.link}>
+              <a className="btn btn-ghost btn-sm rounded-btn">{menu.name[router.locale]}</a>
+            </Link>
+          ))}
         </div>
       </div>
-      <div className="navbar-end">
+      <NavButtonWrap className="navbar-end">
         <button className="btn btn-square btn-ghost">
-          <Feather.FiSearch size={24} />
+          <FiUser />
         </button>
-        <button className="btn btn-square btn-ghost hidden lg:flex ml-1">
-          <Feather.FiUser size={24} />
-        </button>
-        <button className="btn btn-square btn-ghost lg:hidden ml-1">
-          <Feather.FiMenu size={24} />
-        </button>
-      </div>
+        <label htmlFor={TOGGLE_ID} className="btn btn-square btn-ghost lg:hidden">
+          <FiMenu />
+        </label>
+      </NavButtonWrap>
     </div>
   );
 };

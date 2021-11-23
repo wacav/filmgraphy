@@ -1,8 +1,9 @@
 /** @type {import('next').NextConfig} */
 const config = {
   reactStrictMode: true,
-  swcMinify: true,
   sassOptions: true,
+  // babel
+  swcMinify: false,
   i18n: {
     locales: ['en', 'ko'],
     defaultLocale: 'ko',
