@@ -1,0 +1,25 @@
+@import url('./reset.css');
+@import url('./normalize.css');
+@import url('~tailwindcss/tailwind.css');
+
+:root {
+  font-family: 'Spoqa Han Sans Neo', monospace, 'sans-selif';
+  // @apply text-gray-50;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body,
+#__next {
+  width: 100%;
+  min-height: 100%;
+}
+// other font-family inherit setting ( tailwindcss, reset.css )
+body {
+  position: relative;
+
+  @apply bg-gray-700;
+}
