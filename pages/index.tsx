@@ -1,8 +1,11 @@
+import LayoutHeader from '@common/Layout/Header';
 import type { NextPage } from 'next';
 
 const Home: NextPage = () => {
   return (
     <div>
+      <LayoutHeader />
+
       <p>Text Base Color</p>
       <div>
         <button className="btn">hello</button>
