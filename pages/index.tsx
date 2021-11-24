@@ -1,11 +1,18 @@
 import { useTranslation } from '@common/I18n';
 import { makeLanguage } from '@common/I18n/makeTranslation';
+import { Link } from '@libs/next/hint';
 import type { GetStaticProps } from 'next';
 
 const Home = ({ target }) => {
   const { t, c } = useTranslation(target);
   return (
     <div>
+      <Link href="/" locale="ko">
+        <button className="btn">ko</button>
+      </Link>
+      <Link href="/" locale="en">
+        <button className="btn">en</button>
+      </Link>
       <p>target : {target}</p>
       <p>{t('main-test')}</p>
       <p>common use : c( key )</p>
