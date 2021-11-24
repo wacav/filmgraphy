@@ -9,7 +9,7 @@ const Layout: React.FC = ({ children }) => {
       <input type="checkbox" id={TOGGLE_ID} className="drawer-toggle" />
       <div className="flex flex-col drawer-content h-auto ">
         <LayoutHeader />
-        <div className="w-full max-w-screen-2xl mx-auto p-4">{children}</div>
+        <main className="w-full max-w-screen-2xl mx-auto p-4">{children}</main>
         <LayoutFooter />
       </div>
       <SideNav />

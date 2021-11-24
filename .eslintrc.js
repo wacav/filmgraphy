@@ -6,5 +6,6 @@ module.exports = {
   },
   globals: {
     React: true,
+    vm: false,
   },
 };
