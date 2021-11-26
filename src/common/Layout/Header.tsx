@@ -1,9 +1,11 @@
+import useMenu from '@hooks/menu/useMenu';
 import { Image, Link } from '@libs/next/hint';
 import Logo from '@public/assets/logo_transparent.png';
 import { useRouter } from 'next/router';
 import { FiMenu, FiUser } from 'react-icons/fi';
 import tw, { styled } from 'twin.macro';
-import { MENUS, TOGGLE_ID } from './code';
+import { TOGGLE_ID } from '.';
+
 const NavButtonWrap = styled.div`
   .btn + .btn {
     ${tw`ml-1`}
@@ -12,6 +14,7 @@ const NavButtonWrap = styled.div`
 
 const LayoutHeader = () => {
   const router = useRouter();
+  const menus = useMenu();
 
   return (
     <div className="w-full bg-gray-800 navbar mb-2 shadow-lg bg-transparent">
@@ -23,7 +26,7 @@ const LayoutHeader = () => {
           <span className="text-lg font-bold uppercase ml-2 cursor-pointer text-primary">Filmgraphy</span>
         </Link>
         <div className="items-stretch ml-6 hidden lg:flex">
-          {MENUS.map((menu) => (
+          {menus.map((menu) => (
             <Link href={menu.link} passHref key={menu.link}>
               <a className="btn btn-ghost btn-sm rounded-btn">{menu.name[router.locale]}</a>
             </Link>

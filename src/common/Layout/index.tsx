@@ -1,7 +1,8 @@
-import { TOGGLE_ID } from './code';
 import LayoutFooter from './Footer';
 import LayoutHeader from './Header';
 import SideNav from './SideNav';
+
+export const TOGGLE_ID = 'menu-nav-toggle-input';
 
 const Layout: React.FC = ({ children }) => {
   return (

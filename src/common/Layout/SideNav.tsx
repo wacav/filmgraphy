@@ -1,17 +1,20 @@
+import useMenu from '@hooks/menu/useMenu';
 import { Link } from '@libs/next/hint';
 import { useRouter } from 'next/router';
 import { useMemo } from 'react';
 import * as Icons from 'react-icons/ri';
-import { MENUS, TOGGLE_ID } from './code';
+import { TOGGLE_ID } from '.';
 
 export const SideNav = () => {
   const router = useRouter();
   const locale = useMemo(() => router.locale, [router.locale]);
+  const menus = useMenu();
+
   return (
     <aside className="drawer-side">
       <label htmlFor={TOGGLE_ID} className="drawer-overlay" />
       <ul className="p-4 overflow-y-auto menu w-80 bg-gray-800 text-base-content">
-        {MENUS.map((menu) => {
+        {menus.map((menu) => {
           const MenuIcon = Icons[menu.icon];
           return (
             <li key={menu.link}>

@@ -24,12 +24,6 @@ const getTranslation = (i18n: Record<string, any>, key: string, compile?: Record
 
 const Context = createContext<Record<string, any>>(undefined);
 
-export const I18nProvider: React.FC<I18nProps> = ({ children, i18n: _i18n }) => {
-  const i18n = useMemo(() => _i18n || console.error('I18nProvider: i18n is undefined') || {}, [_i18n]);
-
-  return <Context.Provider value={i18n}>{children}</Context.Provider>;
-};
-
 export const useTranslation = (key?: string) => {
   const i18n = useContext(Context);
   const targetI18n = useMemo(() => (key ? key.split('.').reduce((r, c) => r?.[c] ?? {}, i18n) : i18n), [i18n, key]);
@@ -51,4 +45,10 @@ export const useTranslation = (key?: string) => {
   );
 
   return { t, c };
+};
+
+export const I18nProvider: React.FC<I18nProps> = ({ children, i18n: _i18n }) => {
+  const i18n = useMemo(() => _i18n || console.error('I18nProvider: i18n is undefined') || {}, [_i18n]);
+
+  return <Context.Provider value={i18n}>{children}</Context.Provider>;
 };
