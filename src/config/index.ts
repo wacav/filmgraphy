@@ -5,5 +5,6 @@ export const I18N_PATH = '/i18n/languages';
 export const API_BASE_URL = '/api/';
 
 export const SEO_OPTION: NextSeoProps = {
-  defaultTitle: '',
+  defaultTitle: 'Filmgraphy',
+  description: `Personal filmgrapher site`,
 };
