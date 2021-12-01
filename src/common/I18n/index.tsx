@@ -26,14 +26,13 @@ const Context = createContext<Record<string, any>>(undefined);
 
 export const useTranslation = (key?: string) => {
   const i18n = useContext(Context);
-  const targetI18n = useMemo(() => (key ? key.split('.').reduce((r, c) => r?.[c] ?? {}, i18n) : i18n), [i18n, key]);
 
   /**
    * Target
    */
   const t = useCallback(
-    (key: string, compile?: Record<string, string>) => getTranslation(targetI18n, key, compile),
-    [targetI18n],
+    (key: string, compile?: Record<string, string>) => getTranslation(i18n['page'], key, compile),
+    [i18n],
   );
 
   /**

@@ -18,8 +18,7 @@ export const makeLanguage = async ({ locale, target }: { locale: string; target?
   return {
     i18n: {
       common: getTranslation(path.join(languageFilePath, 'common')),
-      ...(target && { [target]: getTranslation(path.join(languageFilePath, target)) }),
+      ...(target && { page: getTranslation(path.join(languageFilePath, target)) }),
     },
-    ...(target && { target }),
   };
 };
