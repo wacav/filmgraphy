@@ -3,8 +3,8 @@ import { makeLanguage } from '@common/I18n/makeTranslation';
 import { Link } from '@libs/next/hint';
 import type { GetStaticProps } from 'next';
 
-const Home = ({ target }) => {
-  const { t, c } = useTranslation(target);
+const Home = () => {
+  const { t, c } = useTranslation();
   return (
     <div>
       <Link href="/" locale="ko">
