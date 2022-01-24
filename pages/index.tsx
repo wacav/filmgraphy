@@ -45,7 +45,6 @@ const Home = () => {
           <Button isOutline variant="link">
             hello
           </Button>
-          <button className="btn btn-outline btn-primary">hello</button>
         </div>
       </div>
     </div>
