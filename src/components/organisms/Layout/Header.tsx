@@ -1,11 +1,13 @@
 import Button from '@components/atoms/Button';
 import LogoTitle from '@components/molecules/LogoTitle';
+import MenuLink from '@components/molecules/Menu/Link';
+import { NAV_TOGGLE_KEY } from '@config';
 import useMenu from '@hooks/menu/useMenu';
 import { Link } from '@libs/next/hint';
 import { useRouter } from 'next/router';
+import { useMemo } from 'react';
 import { FiMenu, FiUser } from 'react-icons/fi';
 import tw, { styled } from 'twin.macro';
-import { TOGGLE_ID } from '.';
 
 const NavButtonWrap = styled.div`
   .btn + .btn {
@@ -15,6 +17,7 @@ const NavButtonWrap = styled.div`
 
 const LayoutHeader = () => {
   const router = useRouter();
+  const locale = useMemo(() => router.locale, [router.locale]);
   const menus = useMenu();
 
   return (
@@ -24,22 +27,20 @@ const LayoutHeader = () => {
           <LogoTitle />
         </Link>
         <div className="items-stretch ml-6 hidden lg:flex">
-          {menus.map((menu) => (
-            <Link href={menu.link} passHref key={menu.link}>
-              <Button variant="ghost" size="sm">
-                {menu.name[router.locale]}
-              </Button>
-            </Link>
+          {menus.map(({ link, name }, idx) => (
+            <MenuLink key={idx} href={link} name={name[locale]} />
           ))}
         </div>
       </div>
       <NavButtonWrap className="navbar-end">
-        <button className="btn btn-square btn-ghost">
+        <Button variant="ghost">
           <FiUser />
-        </button>
-        <label htmlFor={TOGGLE_ID} className="btn btn-square btn-ghost lg:hidden">
-          <FiMenu />
-        </label>
+        </Button>
+        <Button variant="ghost" className="lg:hidden">
+          <label htmlFor={NAV_TOGGLE_KEY}>
+            <FiMenu />
+          </label>
+        </Button>
       </NavButtonWrap>
     </div>
   );

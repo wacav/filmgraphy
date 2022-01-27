@@ -8,3 +8,5 @@ export const SEO_OPTION: NextSeoProps = {
   defaultTitle: APP_NAME,
   description: `Personal filmgrapher site`,
 };
+
+export const NAV_TOGGLE_KEY = 'nav-toggle';
